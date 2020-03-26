@@ -37,3 +37,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+.env
+/apps/api/error.log
+error.log
+/apps/api/src/.env
+yarn.lock

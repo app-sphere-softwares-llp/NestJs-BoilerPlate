@@ -16,9 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nest-js-boiler-plate/api-interfaces": [
-        "libs/api-interfaces/src/index.ts"
-      ]
+      "@nest-js-boiler-plate/models": ["libs/models/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

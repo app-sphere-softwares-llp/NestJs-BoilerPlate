@@ -11,11 +11,13 @@ import { resolvePathHelper } from './helpers/helpers';
 import { DbModule } from '../db/db.module';
 import { UsersService } from './services/users/users.service';
 import { ResetPasswordService } from './services/reset-password/reset-password.service';
+import { EmailService } from './services/email/email.service';
 
 const providers = [
   GeneralService,
   UsersService,
-  ResetPasswordService
+  ResetPasswordService,
+  EmailService
 ];
 
 @Global()
@@ -38,6 +40,7 @@ const providers = [
   ],
   exports: [
     WinstonModule,
+    DbModule,
     ...providers
   ],
   providers: [

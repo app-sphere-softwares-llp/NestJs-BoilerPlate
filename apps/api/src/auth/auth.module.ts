@@ -6,7 +6,6 @@ import { jwtConstants } from './jwt/constants';
 import { JwtStrategy } from './jwt/jwt.strategy';
 import { SharedModule } from '../shared/shared.module';
 import { AuthController } from './auth.controller';
-import { GoogleStrategy } from './google/google.strategy';
 
 @Module({
   imports: [
@@ -17,7 +16,7 @@ import { GoogleStrategy } from './google/google.strategy';
     }),
     SharedModule
   ],
-  providers: [AuthService, JwtStrategy, GoogleStrategy],
+  providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
   exports: [JwtModule]
 })

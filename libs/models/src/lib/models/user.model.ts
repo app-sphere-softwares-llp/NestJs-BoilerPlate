@@ -1,6 +1,7 @@
 import { MemberTypes, OneTimeMessagesDismissed } from '../general';
 import { UserLoginProviderEnum, UserStatus } from '../enums';
 
+
 export class UserLoginWithPasswordRequest {
   emailId: string;
   password: string;
@@ -31,30 +32,8 @@ export class User {
   firstName?: string;
   lastName?: string;
   profilePic?: string;
-  profileLink?: string;
-  lastLoginProvider?: UserLoginProviderEnum;
-  recentLoginInfo?: UserRecentLoginInfo;
-  confirmed?: boolean;
-  memberType?: MemberTypes;
-  oneTimeMessagesDismissed?: OneTimeMessagesDismissed[];
-  locale?: string;
-  timezoneInfo?: UserTimeZoneInfo;
   status?: UserStatus;
-  mobileNumber?: string;
   username?: string;
-  isEmailSent?: boolean;
-  isDeleted?: boolean;
-  invitationId?: string;
-  isSelected?:boolean;
+  lastLoginProvider?: UserLoginProviderEnum;
 }
 
-export class SearchUserModel {
-  organizationId: string;
-  query: string;
-}
-
-export class Mention {
-  id: string;
-  value: string;
-  link: string;
-}

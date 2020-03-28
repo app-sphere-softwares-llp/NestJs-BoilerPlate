@@ -1,20 +1,16 @@
-
 export class BaseRequestModel {
   public sort?: string;
-  public sortBy?: string;
+  public sortBy?: 'asc' | 'desc' = 'asc';
   public query?: string;
   public from?: string;
   public to?: string;
-  public page?: number;
-  public count?: number;
-  public totalPages?: number;
-  public totalItems?: number;
+  public page?: number = 1;
+  public count?: number = 10;
 
   constructor() {
     this.page = 1;
-    this.count = 20;
+    this.count = 10;
     this.sortBy = 'asc';
-    this.query = '';
   }
 
 }

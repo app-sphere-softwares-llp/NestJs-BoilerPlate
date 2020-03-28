@@ -54,6 +54,7 @@
     "@tinymce/tinymce-angular": "^3.3.1",
     "@types/ejs": "^3.0.0",
     "@types/request": "^2.48.3",
+    "angularx-social-login": "^2.2.1",
     "aws-sdk": "^2.561.0",
     "bcrypt": "^3.0.6",
     "bootstrap": "4.1.1",

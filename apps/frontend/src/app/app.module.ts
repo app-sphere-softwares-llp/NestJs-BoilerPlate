@@ -15,28 +15,51 @@ import { FullLayoutComponent } from './layouts/full-layout/full-layout.component
 
 import { NgChartjsModule } from 'ng-chartjs';
 import { ThemeConstantService } from './shared/services/theme-constant.service';
+import { MiddlewareComponent } from './middleware.component';
+import { ServiceModule } from './shared/services/service.module';
+import { AuthServiceConfig, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
+import { environment } from '../environments/environment';
 
 registerLocaleData(en);
+
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider(environment.googleApi)
+  }
+]);
+
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
     declarations: [
         AppComponent,
         CommonLayoutComponent,
-        FullLayoutComponent
+        FullLayoutComponent,
+        MiddlewareComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         NgZorroAntdModule,
         AppRoutingModule,
+        ServiceModule.forRoot(),
         TemplateModule,
         SharedModule,
-        NgChartjsModule
+        NgChartjsModule,
+        SocialLoginModule
     ],
     providers: [
         { 
             provide: NZ_I18N,
             useValue: en_US, 
+        },
+        {
+          provide: AuthServiceConfig,
+          useFactory: provideConfig
         },
         ThemeConstantService
     ],

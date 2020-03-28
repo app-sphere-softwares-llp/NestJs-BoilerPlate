@@ -6,23 +6,40 @@ import { CommonLayoutComponent } from "./layouts/common-layout/common-layout.com
 
 import { FullLayout_ROUTES } from "./shared/routes/full-layout.routes";
 import { CommonLayout_ROUTES } from "./shared/routes/common-layout.routes";
+import { MiddlewareComponent } from './middleware.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 const appRoutes: Routes = [
-    {
-        path: '',
-        redirectTo: '/dashboard/default',
-        pathMatch: 'full',
-    },
-    { 
-        path: '', 
-        component: CommonLayoutComponent,
-        children: CommonLayout_ROUTES 
-    },
-    { 
-        path: '', 
-        component: FullLayoutComponent, 
-        children: FullLayout_ROUTES
-    }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./register/register.module').then(m => m.RegisterModule)
+  },
+  {
+    path: 'register/:url',
+    loadChildren: () =>
+      import('./register/register.module').then(m => m.RegisterModule)
+  },
+  {
+    path: 'forgot',
+    loadChildren: () =>
+      import('./forgot/forgot.module').then(m => m.ForgotModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'middleware',
+    component: MiddlewareComponent
+  }
 ];
 
 @NgModule({

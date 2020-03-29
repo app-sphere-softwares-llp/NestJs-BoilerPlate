@@ -11,13 +11,10 @@ import { cloneDeep } from 'lodash';
 })
 
 export class DashboardComponent implements OnInit, OnDestroy {
-  contentHeaderDisplay: String = 'none';
   isFolded: boolean;
   isSideNavDark: boolean;
   isExpand: boolean;
   selectedHeaderColor: string;
-  projectModalIsVisible: boolean = false;
-  organizationModalIsVisible: boolean = false;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private themeService: ThemeConstantService,
               private _generalService: GeneralService, private _userService: UserService,

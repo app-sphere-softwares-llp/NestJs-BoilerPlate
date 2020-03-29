@@ -9,29 +9,11 @@ export const ROUTES: SideNavInterface[] = [
         submenu: []
     },
     {
-        path: '',
-        title: 'Multi Level Menu',
+        path: 'new-pass',
+        title: 'New Pass',
         iconType: 'nzIcon',
         iconTheme: 'outline',
-        icon: 'appstore',
-        submenu: [
-            { 
-                path: '',
-                title: 'Level 1', 
-                iconType: '', 
-                icon: '',
-                iconTheme: '',
-                submenu: [
-                    {
-                        path: '',
-                        title: 'Level 2',
-                        iconType: 'nzIcon',
-                        iconTheme: 'outline',
-                        icon: 'layout',
-                        submenu: []
-                    }    
-                ] 
-            }
-        ]
+        icon: 'plus',
+        submenu: []
     }
 ]    

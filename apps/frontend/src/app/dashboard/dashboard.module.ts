@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard.component';
 import { TemplateModule } from '../shared/template/template.module';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NewPassComponent } from './new-pass/new-pass.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -14,13 +16,15 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
     CommonModule,
     SharedModule,
     DashboardRoutingModule,
-    NzToolTipModule
+    NzToolTipModule,
+    ReactiveFormsModule
   ],
   exports: [
   ],
   declarations: [
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    NewPassComponent
   ],
   providers: [
     ThemeConstantService

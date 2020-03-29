@@ -54,7 +54,7 @@ export class UsersService extends BaseService<User & Document> {
    * @param id
    */
   async getUserProfile(id: string) {
-    const userDetails = await this._userModel.findById(new Types.ObjectId(id)).lean();
+    const userDetails: User = await this._userModel.findById(new Types.ObjectId(id)).lean();
 
     if (!userDetails) {
       throw new UnauthorizedException();

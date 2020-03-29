@@ -12,12 +12,16 @@ import { DbModule } from '../db/db.module';
 import { UsersService } from './services/users/users.service';
 import { ResetPasswordService } from './services/reset-password/reset-password.service';
 import { EmailService } from './services/email/email.service';
+import { AttachmentService } from './services/attachment/attachment.service';
+import { SmsService } from './services/sms/sms.service';
 
 const providers = [
   GeneralService,
   UsersService,
   ResetPasswordService,
-  EmailService
+  EmailService,
+  AttachmentService,
+  SmsService
 ];
 
 @Global()

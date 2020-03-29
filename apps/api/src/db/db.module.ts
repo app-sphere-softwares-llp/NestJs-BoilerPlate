@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { DbCollection } from '@nest-js-boiler-plate/models';
 import { userSchema } from './schemas/users.schema';
 import { resetPasswordSchema } from './schemas/reset-password.schema';
+import { attachmentSchema } from './schemas/attachment.schema';
 
 
 @Module({
@@ -15,6 +16,10 @@ import { resetPasswordSchema } from './schemas/reset-password.schema';
       name: DbCollection.resetPassword,
       schema: resetPasswordSchema,
       collection: DbCollection.resetPassword
+    }, {
+      name: DbCollection.attachments,
+      schema: attachmentSchema,
+      collection: DbCollection.attachments
     }])
   ],
   exports: [

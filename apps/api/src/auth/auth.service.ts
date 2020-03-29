@@ -18,7 +18,6 @@ import { ResetPasswordService } from '../shared/services/reset-password/reset-pa
 import {
   DbCollection,
   EmailTemplatePathEnum,
-  MemberTypes,
   MongooseQueryModel,
   ResetPasswordVerifyModel,
   User,
@@ -232,9 +231,7 @@ export class AuthService implements OnModuleInit {
 
       // user exist or not
       if (userDetails) {
-        if (user.invitationId) {
-          BadRequest('User Already Exists');
-        }
+        BadRequest('Email address already in use');
       } else {
 
         // create new user and assign jwt token
@@ -246,7 +243,6 @@ export class AuthService implements OnModuleInit {
         model.locale = user.locale;
         model.status = UserStatus.Active;
         model.lastLoginProvider = UserLoginProviderEnum.normal;
-        model.memberType = MemberTypes.alien;
 
         // hashed password
         model.password = await bcrypt.hash(user.password, saltRounds);
@@ -331,7 +327,6 @@ export class AuthService implements OnModuleInit {
             user.lastLoginProvider = UserLoginProviderEnum.google;
             user.profilePic = authTokenResult.picture;
             user.status = UserStatus.Active;
-            user.memberType = MemberTypes.alien;
 
             // save it to db
             const newUser = await this._userModel.create([user], session);

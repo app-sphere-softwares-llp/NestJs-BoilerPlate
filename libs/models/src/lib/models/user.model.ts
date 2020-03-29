@@ -35,5 +35,6 @@ export class User {
   status?: UserStatus;
   username?: string;
   lastLoginProvider?: UserLoginProviderEnum;
+  locale?: string;
 }
 

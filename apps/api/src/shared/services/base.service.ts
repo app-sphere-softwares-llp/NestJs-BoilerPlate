@@ -77,7 +77,7 @@ export class BaseService<T extends Document> {
    */
   public async updateById(id: string, updatedDoc: any, session: ClientSession): Promise<T> {
     return await this.model
-      .updateOne({ _id: id }, updatedDoc, { session }).exec();
+      .updateOne({ _id: id } as any, updatedDoc, { session }).exec();
   }
 
   /**
@@ -129,7 +129,7 @@ export class BaseService<T extends Document> {
     }
 
     const result = await query.lean().exec();
-    result.forEach((doc) => {
+    result.forEach((doc: any) => {
       doc.id = String(doc._id);
     });
     const numberOfDocs = await this.model.countDocuments({ ...filter, ...DEFAULT_QUERY_FILTER });
@@ -171,7 +171,7 @@ export class BaseService<T extends Document> {
    */
   public async delete(id: string, session: ClientSession): Promise<T> {
     return this.model
-      .update({ id: this.toObjectId(id) }, { isDeleted: true })
+      .update({ id: this.toObjectId(id) } as any, { isDeleted: true })
       .exec();
   }
 
